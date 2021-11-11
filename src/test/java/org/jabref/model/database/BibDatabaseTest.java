@@ -15,6 +15,7 @@ import org.jabref.model.entry.BibtexString;
 import org.jabref.model.entry.field.StandardField;
 import org.jabref.model.entry.field.UnknownField;
 import org.jabref.model.entry.types.StandardEntryType;
+import org.jabref.model.metadata.MetaData;
 import org.jabref.model.event.TestEventListener;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -43,6 +44,23 @@ class BibDatabaseTest {
         assertEquals(1, database.getEntries().size());
         assertEquals(1, database.getEntryCount());
         assertEquals(entry, database.getEntries().get(0));
+    }
+
+    @Test
+    void noEmptyEntry() {
+        BibEntry entry = new BibEntry();
+        entry.setField(StandardField.AUTHOR, "#AAA#");
+        database.insertEntry(entry);
+        BibDatabaseContext bibDatabaseContext = new BibDatabaseContext(database, new MetaData());
+        assertEquals(false, bibDatabaseContext.hasEmptyEntries());
+    }
+
+    @Test
+    void withEmptyEntry() {
+        BibEntry entry = new BibEntry();
+        database.insertEntry(entry);
+        BibDatabaseContext bibDatabaseContext = new BibDatabaseContext(database, new MetaData());
+        assertEquals(true, bibDatabaseContext.hasEmptyEntries());
     }
 
     @Test

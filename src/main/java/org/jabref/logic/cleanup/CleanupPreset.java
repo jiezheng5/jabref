@@ -48,6 +48,7 @@ public class CleanupPreset {
         /**
          * Removes the http://... for each DOI. Moves DOIs from URL and NOTE filed to DOI field.
          */
+        CLEAN_UP_EMPTY_ENTRY,
         CLEAN_UP_DOI,
         CLEANUP_EPRINT,
         MAKE_PATHS_RELATIVE,
@@ -70,6 +71,6 @@ public class CleanupPreset {
         DO_NOT_CONVERT_TIMESTAMP,
         MOVE_PDF,
         FIX_FILE_LINKS,
-        CLEAN_UP_ISSN
+        CLEAN_UP_ISSN;
     }
 }
