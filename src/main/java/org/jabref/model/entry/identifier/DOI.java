@@ -106,6 +106,7 @@ public class DOI implements Identifier {
         // Remove whitespace
         String trimmedDoi = doi.trim();
 
+        // Remove non-valid special character at the end
         trimmedDoi = removeScharDOI(trimmedDoi);
 
         // HTTP URL decoding
@@ -163,7 +164,6 @@ public class DOI implements Identifier {
                     lcharDoi[i] == 40 ||
                     lcharDoi[i] == 41
             ) {
-                // System.out.println(i);
                 break;
             }
         }
