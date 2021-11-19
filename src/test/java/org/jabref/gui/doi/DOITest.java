@@ -10,9 +10,9 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-  /*
-  Test class for the added removeScharDOI(String inputStr) method
-  The method is supposed to automatically remove the non-valid characters at the end of the input DOI
+  /**
+   * Test class for the added removeScharDOI(String inputStr) method
+   *
    */
 
 public class DOITest {
